@@ -85,12 +85,14 @@ Each TDD exercise lives in its own named subfolder, keeping source and tests sep
 ClaudeTddCoach/
 ├── todoListKata/
 │   ├── src/              ← your implementation (gitignored — stays local)
-│   └── tests/
-│       └── todoList.test.ts
+│   ├── tests/
+│   │   └── todoList.test.ts
+│   └── REQUIREMENTS.md  ← rules + ordered test list
 ├── fizzBuzzKata/
 │   ├── src/              ← your implementation (gitignored — stays local)
-│   └── tests/
-│       └── fizzBuzz.test.ts
+│   ├── tests/
+│   │   └── fizzBuzz.test.ts
+│   └── REQUIREMENTS.md  ← rules + ordered test list
 ├── vitest.config.ts
 ├── tsconfig.json
 ├── package.json
