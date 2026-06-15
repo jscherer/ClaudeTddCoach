@@ -156,18 +156,25 @@ Each TDD exercise lives in its own named subfolder (like Java packages), contain
 
 ```
 ClaudeTddCoach/
-├── todoListExample/
-│   ├── src/        ← implementation files
-│   └── tests/      ← test files
-├── fizzBuzzExample/
-│   ├── src/
-│   └── tests/
+├── todoListKata/
+│   ├── src/        ← implementation files (gitignored — stays local)
+│   └── tests/      ← test files (committed to GitHub)
+├── fizzBuzzKata/
+│   ├── src/        ← implementation files (gitignored — stays local)
+│   └── tests/      ← test files (committed to GitHub)
 └── package.json
 ```
 
-- New exercises are added as sibling folders alongside existing ones
+- Kata folders are named `*Kata` (e.g. `fizzBuzzKata`, `todoListKata`)
+- New katas are added as sibling folders alongside existing ones
 - Test files use `import` to reference their implementation (TypeScript ES modules)
 - Vitest discovers all tests via `vitest.config.ts` with `include: ['**/tests/**/*.test.ts']`
+
+### GitHub Policy
+
+- `*/src/` is gitignored — implementation code **never** gets committed
+- Only `tests/` and `REQUIREMENTS.md` are committed to GitHub
+- The repo serves as a starter kit; solutions stay on the developer's machine
 
 ---
 

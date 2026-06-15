@@ -63,15 +63,17 @@ The session runs as **pair programming** with three roles:
 ## Getting Started
 
 ```bash
-# Install dependencies
-npm install
-
 # Run all tests once
 npm test
 
 # Run tests in watch mode (recommended while coding)
-npx vitest
+.\node_modules\.bin\vitest.cmd
+
+# Run a single kata
+.\node_modules\.bin\vitest.cmd fizzBuzzKata
 ```
+
+> **Note:** `npx vitest` and `npm install` may not work in all environments (e.g. corporate proxy). Use the direct `.cmd` path above if they don't.
 
 ---
 
@@ -81,16 +83,21 @@ Each TDD exercise lives in its own named subfolder, keeping source and tests sep
 
 ```
 ClaudeTddCoach/
-├── todoListExample/
-│   ├── src/
-│   │   └── todoList.ts       ← implementation (starts minimal)
+├── todoListKata/
+│   ├── src/              ← your implementation (gitignored — stays local)
 │   └── tests/
-│       └── todoList.test.ts  ← your tests go here
+│       └── todoList.test.ts
+├── fizzBuzzKata/
+│   ├── src/              ← your implementation (gitignored — stays local)
+│   └── tests/
+│       └── fizzBuzz.test.ts
 ├── vitest.config.ts
 ├── tsconfig.json
 ├── package.json
 └── README.md
 ```
+
+> **GitHub policy:** `src/` directories are gitignored. Only tests and `REQUIREMENTS.md` are committed — solutions stay on your machine.
 
 Vitest discovers all test files via `vitest.config.ts` (`**/tests/**/*.test.ts`).
 
@@ -100,31 +107,28 @@ Vitest discovers all test files via `vitest.config.ts` (`**/tests/**/*.test.ts`)
 
 Before writing any code, follow the kata startup ritual:
 
-1. **Create the folder structure**
-   ```bash
-   mkdir -p myExercise/src myExercise/tests
-   ```
+Kata folders are named `*Kata` (e.g. `fizzBuzzKata`, `todoListKata`).
 
-2. **Ask Claude to research and write `myExercise/REQUIREMENTS.md`** with:
+1. **Ask Claude to create the folder and write `REQUIREMENTS.md`** with:
    - The rules of the kata
    - A prioritised test list (simplest → most complex)
 
-3. **Review the test list** with Claude — no big jumps between steps
+2. **Review the test list** with Claude — no big jumps between steps
 
-4. **You write the first failing test** in `tests/myExercise.test.ts` — test #1 from the list
+3. **You write the first failing test** in `tests/myKata.test.ts` — test #1 from the list
 
-5. **You write a minimal skeleton** in `src/myExercise.ts` — just enough for the test to compile and fail
+4. **You write a minimal skeleton** in `src/myKata.ts` — just enough for the test to compile and fail
 
 Then follow the Red → Green → Refactor cycle for each remaining test.
 
 **Example — FizzBuzz:**
 ```
-fizzBuzzExample/
+fizzBuzzKata/
 ├── src/
-│   └── fizzBuzz.ts       ← you write the skeleton (after the test)
+│   └── fizzBuzz.ts       ← you write the skeleton (after the test, stays local)
 ├── tests/
-│   └── fizzBuzz.test.ts  ← you write test #1 first
-└── REQUIREMENTS.md       ← Claude researches and writes this
+│   └── fizzBuzz.test.ts  ← you write test #1 first (committed to GitHub)
+└── REQUIREMENTS.md       ← Claude creates this
 ```
 
 ---
@@ -135,14 +139,14 @@ fizzBuzzExample/
 # Run all exercises once
 npm test
 
-# Run a single exercise
-npx vitest todoListExample
+# Run a single kata
+.\node_modules\.bin\vitest.cmd fizzBuzzKata
+
+# Watch mode (recommended while coding)
+.\node_modules\.bin\vitest.cmd
 
 # Run with coverage report
-npx vitest --coverage
-
-# Watch mode (interactive, default Vitest behaviour)
-npx vitest
+.\node_modules\.bin\vitest.cmd --coverage
 
 # Lint for code smells (run before refactoring)
 npm run lint
