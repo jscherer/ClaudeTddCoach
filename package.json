@@ -2,12 +2,13 @@
   "name": "claude-tdd-coach",
   "version": "1.0.0",
   "scripts": {
-    "test": "vitest run",
-    "lint": "eslint ."
+    "test": ".\\node_modules\\.bin\\vitest.cmd run",
+    "test:watch": ".\\node_modules\\.bin\\vitest.cmd",
+    "lint": ".\\node_modules\\.bin\\eslint.cmd ."
   },
   "devDependencies": {
     "typescript": "^5.0.0",
-    "vitest": "^2.0.0",
+    "vitest": "^3.0.0",
     "@types/node": "^20.0.0"
   }
 }
