@@ -6,7 +6,7 @@
 
 ## What and Why
 
-**What it is:** A TypeScript project (Vitest) structured as a collection of TDD exercises. Each exercise starts with a failing test and a skeleton implementation. Your job is to make it green — one small step at a time.
+**What it is:** A TypeScript project (Vitest) structured as a collection of TDD exercises - aka TDD katas. Each exercise starts with a failing test and a skeleton implementation. Your job is to make it green — one small step at a time.
 
 **Why it exists:** Reading about Test-Driven Development is easy. Actually doing it — resisting the urge to write too much code, staying in the cycle, writing the test *first* — is hard. This project pairs you with Claude as a navigator and TDD coach to practice the discipline in real time.
 
