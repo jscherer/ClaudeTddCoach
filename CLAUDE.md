@@ -113,6 +113,7 @@ Techniques and tooling Claude will proactively suggest:
 |------|-----------|
 | Project start | Run `npx vitest` for a continuous feedback loop while coding (watch mode is default) |
 | After each GREEN | Run `npx vitest --coverage` to spot untested branches |
+| Before refactoring | Run `npm run lint` to identify code smells first |
 | Fixing a bug | Write a failing test that reproduces the bug first, then fix it |
 | Method depends on I/O | Suggest Vitest mocks/spies to isolate the unit under test |
 | Writing E2E tests | Remind: unit tests should be the majority (testing pyramid) |

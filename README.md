@@ -128,6 +128,9 @@ npx vitest --coverage
 
 # Watch mode (interactive, default Vitest behaviour)
 npx vitest
+
+# Lint for code smells (run before refactoring)
+npm run lint
 ```
 
 ---
