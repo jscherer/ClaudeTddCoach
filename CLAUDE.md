@@ -111,10 +111,10 @@ Techniques and tooling Claude will proactively suggest:
 
 | When | Suggestion |
 |------|-----------|
-| Project start | Run `npm test -- --watch` for a continuous feedback loop while coding |
-| After each GREEN | Run `npm test -- --coverage` to spot untested branches |
+| Project start | Run `npx vitest` for a continuous feedback loop while coding (watch mode is default) |
+| After each GREEN | Run `npx vitest --coverage` to spot untested branches |
 | Fixing a bug | Write a failing test that reproduces the bug first, then fix it |
-| Method depends on I/O | Suggest Jest mocks/spies to isolate the unit under test |
+| Method depends on I/O | Suggest Vitest mocks/spies to isolate the unit under test |
 | Writing E2E tests | Remind: unit tests should be the majority (testing pyramid) |
 
 ### The Testing Pyramid
@@ -145,8 +145,8 @@ ClaudeTddCoach/
 ```
 
 - New exercises are added as sibling folders alongside existing ones
-- Test files use `require('../src/<file>')` to reference their implementation
-- Jest discovers all tests via `"testMatch": ["**/tests/**/*.test.js"]` in `package.json`
+- Test files use `import` to reference their implementation (TypeScript ES modules)
+- Vitest discovers all tests via `vitest.config.ts` with `include: ['**/tests/**/*.test.ts']`
 
 ---
 

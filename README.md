@@ -6,7 +6,7 @@
 
 ## What and Why
 
-**What it is:** A JavaScript project (Jest) structured as a collection of TDD exercises. Each exercise starts with a failing test and a skeleton implementation. Your job is to make it green — one small step at a time.
+**What it is:** A TypeScript project (Vitest) structured as a collection of TDD exercises. Each exercise starts with a failing test and a skeleton implementation. Your job is to make it green — one small step at a time.
 
 **Why it exists:** Reading about Test-Driven Development is easy. Actually doing it — resisting the urge to write too much code, staying in the cycle, writing the test *first* — is hard. This project pairs you with Claude as a navigator and TDD coach to practice the discipline in real time.
 
@@ -70,7 +70,7 @@ npm install
 npm test
 
 # Run tests in watch mode (recommended while coding)
-npm test -- --watch
+npx vitest
 ```
 
 ---
@@ -83,31 +83,33 @@ Each TDD exercise lives in its own named subfolder, keeping source and tests sep
 ClaudeTddCoach/
 ├── todoListExample/
 │   ├── src/
-│   │   └── todoList.js       ← implementation (starts minimal)
+│   │   └── todoList.ts       ← implementation (starts minimal)
 │   └── tests/
-│       └── todoList.test.js  ← your tests go here
+│       └── todoList.test.ts  ← your tests go here
+├── vitest.config.ts
+├── tsconfig.json
 ├── package.json
 └── README.md
 ```
 
-Jest automatically discovers all test files matching `**/tests/**/*.test.js`.
+Vitest discovers all test files via `vitest.config.ts` (`**/tests/**/*.test.ts`).
 
 ---
 
 ## Adding a New Exercise
 
 1. Create a new folder: `mkdir -p myExercise/src myExercise/tests`
-2. Add a skeleton source file in `myExercise/src/`
-3. Write your first failing test in `myExercise/tests/myExercise.test.js`
-4. Use `require('../src/<file>')` to import from the test
+2. Add a skeleton source file in `myExercise/src/` (`.ts`)
+3. Write your first failing test in `myExercise/tests/myExercise.test.ts`
+4. Use `import` to reference the implementation from the test
 
 Example:
 ```
 fizzBuzzExample/
 ├── src/
-│   └── fizzBuzz.js
+│   └── fizzBuzz.ts
 └── tests/
-    └── fizzBuzz.test.js
+    └── fizzBuzz.test.ts
 ```
 
 ---
@@ -115,17 +117,17 @@ fizzBuzzExample/
 ## Running Tests
 
 ```bash
-# Run all exercises
-npx jest
+# Run all exercises once
+npm test
 
 # Run a single exercise
-npx jest --testPathPattern="todoListExample"
+npx vitest todoListExample
 
 # Run with coverage report
-npx jest --coverage
+npx vitest --coverage
 
-# Watch mode
-npx jest --watch
+# Watch mode (interactive, default Vitest behaviour)
+npx vitest
 ```
 
 ---
