@@ -130,6 +130,26 @@ Techniques and tooling Claude will proactively suggest:
 
 ---
 
+## Starting a New Kata
+
+Before writing any code, follow this ritual:
+
+1. **Claude creates the exercise folder and `REQUIREMENTS.md`** containing:
+   - The rules of the kata
+   - A prioritised **test list**: ordered from simplest to most complex, one behaviour per row
+
+2. **Driver reviews the test list** — make sure it builds up incrementally with no big jumps
+
+3. **Driver writes the first failing test only** — test #1 from the list
+
+4. **Driver writes the minimal skeleton** in `src/` — just enough for the test to compile and fail
+
+Then enter the normal RED → GREEN → REFACTOR cycle.
+
+> "A test list is not a test suite — it is a thinking tool. Write it before you touch the keyboard." — Kent Beck
+
+---
+
 ## Project Structure
 
 Each TDD exercise lives in its own named subfolder (like Java packages), containing `src/` and `tests/` subdirectories:

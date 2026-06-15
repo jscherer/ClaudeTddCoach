@@ -98,18 +98,33 @@ Vitest discovers all test files via `vitest.config.ts` (`**/tests/**/*.test.ts`)
 
 ## Adding a New Exercise
 
-1. Create a new folder: `mkdir -p myExercise/src myExercise/tests`
-2. Add a skeleton source file in `myExercise/src/` (`.ts`)
-3. Write your first failing test in `myExercise/tests/myExercise.test.ts`
-4. Use `import` to reference the implementation from the test
+Before writing any code, follow the kata startup ritual:
 
-Example:
+1. **Create the folder structure**
+   ```bash
+   mkdir -p myExercise/src myExercise/tests
+   ```
+
+2. **Ask Claude to research and write `myExercise/REQUIREMENTS.md`** with:
+   - The rules of the kata
+   - A prioritised test list (simplest → most complex)
+
+3. **Review the test list** with Claude — no big jumps between steps
+
+4. **You write the first failing test** in `tests/myExercise.test.ts` — test #1 from the list
+
+5. **You write a minimal skeleton** in `src/myExercise.ts` — just enough for the test to compile and fail
+
+Then follow the Red → Green → Refactor cycle for each remaining test.
+
+**Example — FizzBuzz:**
 ```
 fizzBuzzExample/
 ├── src/
-│   └── fizzBuzz.ts
-└── tests/
-    └── fizzBuzz.test.ts
+│   └── fizzBuzz.ts       ← you write the skeleton (after the test)
+├── tests/
+│   └── fizzBuzz.test.ts  ← you write test #1 first
+└── REQUIREMENTS.md       ← Claude researches and writes this
 ```
 
 ---
