@@ -1,0 +1,43 @@
+{
+  "hooks": {
+    "PreToolUse": [
+      {
+        "matcher": "Write",
+        "hooks": [
+          {
+            "type": "prompt",
+            "prompt": "If writing feature code (not tests), check if test file exists. If not, return 'block' and remind to write tests first."
+          }
+        ]
+      }
+    ],
+    "PostToolUse": [
+      {
+        "matcher": "Write|Edit",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "npm test -- --passWithNoTests --watchAll=false",
+            "onFailure": "warn"
+          }
+        ]
+      }
+    ],
+    "Stop": [
+      {
+        "matcher": "*",
+        "hooks": [
+          {
+            "type": "prompt",
+            "prompt": "Check: 1) Was feature code added or modified? 2) If yes, do corresponding tests exist and pass? If tests don't exist or fail, return 'block' with explanation. Otherwise return 'approve'."
+          },
+          {
+            "type": "command",
+            "command": "npm test",
+            "onFailure": "block"
+          }
+        ]
+      }
+    ]
+  }
+}
