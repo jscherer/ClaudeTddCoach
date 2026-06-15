@@ -2,12 +2,11 @@
   "name": "claude-tdd-coach",
   "version": "1.0.0",
   "scripts": {
-    "test": "jest"
-  },
-  "jest": {
-    "testMatch": ["**/tests/**/*.test.js"]
+    "test": "vitest run"
   },
   "devDependencies": {
-    "jest": "^29.0.0"
+    "typescript": "^5.0.0",
+    "vitest": "^2.0.0",
+    "@types/node": "^20.0.0"
   }
 }

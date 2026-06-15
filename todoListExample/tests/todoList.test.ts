@@ -1,4 +1,5 @@
-const { TodoList } = require('../src/todoList');
+import { describe, test, expect } from 'vitest';
+import { TodoList } from '../src/todoList';
 
 describe('TodoList', () => {
   describe('addTodo', () => {
