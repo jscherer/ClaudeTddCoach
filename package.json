@@ -1,0 +1,13 @@
+{
+  "name": "claude-tdd-coach",
+  "version": "1.0.0",
+  "scripts": {
+    "test": "jest"
+  },
+  "jest": {
+    "testMatch": ["**/tests/**/*.test.js"]
+  },
+  "devDependencies": {
+    "jest": "^29.0.0"
+  }
+}
